@@ -13,8 +13,13 @@ public class TicTacToe {
                 {'-', '-', '-'},
                 {'-', '-', '-'}
             };
+            char[][] boardTest = {
+                {'-', '-', 'O'},
+                {'-', 'O', '-'},
+                {'O', '-', '-'}
+            };
 
-            printBoard(board);
+            printBoard(boardTest);
             for (int i = 0; i < 9; i++) {
                 if(i % 2 == 0){
                     System.out.println("Turn: X");
@@ -29,7 +34,8 @@ public class TicTacToe {
                 }
             }
             printBoard(board);
-            System.out.println(checkWin(board));
+
+            
 
               /*
               {  Task 3: Loop through turns.
@@ -120,13 +126,15 @@ public class TicTacToe {
     public static int checkRows(char[][] board) {
         int count = 0;
         for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                
-                if(Character.compare(board[i][j], 'X') != 0){
-                    break;
-                } 
+            for (int j = 0; j < board.length; j++) {
+                if(Character.compare(board[i][j], 'X') == 0){
+                    count++;
+                    if(count == 3) return count;  
+                } else {
+                   count--; 
+                   if(count == -3) return count;
+                }
             }
-            
         }
         return count;
     }
@@ -134,18 +142,69 @@ public class TicTacToe {
     
     public static int checkColumns(char[][] board) {
         int count = 0;
+        for (int j = 0; j < board.length; j++) {
+            for (int i = 0; i < board.length; i++) {
+                if(Character.compare(board[i][j], 'X') == 0){
+                    count++;
+                    if(count == 3) return count;
+                } else {
+                    count--;
+                    if(count == -3) return count;
+                }
+            }
+        }
         return count;
     }
     
     
     public static int checkLeft(char[][] board) {
         int count = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                if(i == j && Character.compare(board[i][j], 'X') == 0){
+                    count++;
+                    if(count == 3) return count;
+                } else if(i == j && Character.compare(board[i][j], 'O') == 0){
+                    count--;
+                    if(count == -3) return count;
+                }
+            }
+        }
         return count;
     }
     
     
     public static int checkRight(char[][] board) {
         int count = 0;
+        /* for (int i = 0; i < board.length; i++) {
+            for (int j = board.length - 1; j > 0; j--) {
+                if(Character.compare(board[i][j], 'X') == 0){
+                    count++;
+                    if(count == 3) return count;
+                } else if(Character.compare(board[i][j], 'O') == 0){
+                    count--;
+                    if(count == -3) return count;
+                    
+                }
+            }   
+        } */
+        /*
+        * 2 - 0 = 2
+        * 2 - 1 = 1
+        * 2 - 2 = 0
+        * [0][2]
+        * [1][1]
+        * [2][0]
+        * 
+        */
+        for (int i = 0; i < board.length; i++) {
+            if(Character.compare(board[i][2-i], 'X') == 0){
+                count++;
+            }
+            else {
+                count--;
+            }
+        }
         return count;
     }
     
