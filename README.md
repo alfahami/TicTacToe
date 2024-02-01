@@ -1,2 +1,2 @@
-# TicTacToe
-Two player game of Tic Tac Toe done with java
+# Java challenges
+Some challenges on getting hands on java
