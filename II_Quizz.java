@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class B_Quizz {
+public class II_Quizz {
     public static void main(String[] args) {
         
         //See Learn the Part for the complete instructions.
