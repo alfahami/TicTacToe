@@ -1,2 +1,2 @@
 # Java challenges
-Some challenges on getting hands on java
+Some challenges while getting hands on java
