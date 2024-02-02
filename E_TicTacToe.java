@@ -151,6 +151,10 @@ public class E_TicTacToe {
         return count;
     }
 
+    /*
+     * Another way is to use one for loop as it will loop equal indexes, 
+     * board[i][i] = board[1][1] ...
+     */
     public static int checkLeft(char[][] board) {
         int count = 0;
         for (int i = 0; i < board.length; i++) {
@@ -178,6 +182,7 @@ public class E_TicTacToe {
          * [0][2]
          * [1][1]
          * [2][0]
+         * board[2 - i][i] would work but would start from row 2
          */
         for (int i = 0; i < board.length; i++) {
             if (Character.compare(board[i][2 - i], 'X') == 0) {
