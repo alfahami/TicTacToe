@@ -129,6 +129,11 @@ public class E_TicTacToe {
                         return count;
                 }
             }
+            if(count == 3 || count == -3){
+                return count;
+            } else {
+                count = 0;
+            }
         }
         return count;
     }
@@ -146,6 +151,11 @@ public class E_TicTacToe {
                     if (count == -3)
                         return count;
                 }
+            }
+            if(count == 3 || count == -3){
+                return count;
+            } else {
+                count = 0;
             }
         }
         return count;
@@ -168,6 +178,11 @@ public class E_TicTacToe {
                     if (count == -3)
                         return count;
                 }
+            }
+            if(count == 3 || count == -3){
+                return count;
+            } else {
+                count = 0;
             }
         }
         return count;
