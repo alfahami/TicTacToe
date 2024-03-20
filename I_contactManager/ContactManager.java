@@ -7,7 +7,7 @@ public class ContactManager {
         this.contacts = new Contact[contacts.length];
         // iterate the array and do a deep copy of each element
         for (int i = 0; i < this.contacts.length; i++) {
-            this.contacts[i] = contacts[i];
+            this.contacts[i] = new Contact(contacts[i]);
         }
     }
 

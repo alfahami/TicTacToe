@@ -59,7 +59,7 @@ public class Contact {
     }
 
     public int toAge(String birthDate){
-        int age = Period.between(LocalDate.parse(birthDate, ), LocalDate.now()).getYears();
+        int age = Period.between(LocalDate.parse(birthDate), LocalDate.now()).getYears();
         
         return age;
     }
