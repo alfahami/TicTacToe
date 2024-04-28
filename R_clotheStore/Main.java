@@ -1,4 +1,3 @@
-import product.*;
 import product.Shirt;
 import product.Shirt.Size;
 
@@ -10,6 +9,7 @@ public class Main {
         shirt.setBrand("ADIDAS");
         shirt.setPrice(49.99);
         shirt.setColor("BLUE");
+        System.out.println(shirt.toString());
         shirt.fold();
         productStore(shirt);
 
