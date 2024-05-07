@@ -18,7 +18,7 @@ public abstract class LabEquipment {
         setModel(source.model);
         setYear(source.year);
     }
-    
+
     public String getManufacturer() {
         return this.manufacturer;
     }
@@ -27,8 +27,6 @@ public abstract class LabEquipment {
         if(manufacturer == null || manufacturer.isBlank()) throw new IllegalArgumentException("Manufacturer cannot be null or blank");
         this.manufacturer = manufacturer;
     }
-
-    public abstract String performMaintenance();
 
     public String getModel() {
         return this.model;
@@ -48,5 +46,6 @@ public abstract class LabEquipment {
         this.year = year;
     }
 
-
+    public abstract String performMaintenance();
+    public abstract LabEquipment clone();
 }

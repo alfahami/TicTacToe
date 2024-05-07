@@ -11,8 +11,8 @@ public class Centrifuge extends LabEquipment {
     }
 
     public Centrifuge(Centrifuge source) {
-        super(source.getManufacturer(), source.getModel(), source.getYear());
-        setMaxRPM(source.getMaxRPM());
+        super(source); // in the abstract superclass, we have a copy constructor, thus this
+        setMaxRPM(source.maxRPM);
     }
 
     public int getMaxRPM() {
@@ -27,6 +27,11 @@ public class Centrifuge extends LabEquipment {
     @Override
     public String performMaintenance() {
         return "Centrifuge maintenance: Check the rotor, clean the chamber, and lubricate the spindle.";
+    }
+
+    @Override
+    public LabEquipment clone() {
+        return new Centrifuge(this);
     }
 
 }

@@ -10,9 +10,10 @@ public class Microscope extends LabEquipment{
     } 
 
     public Microscope(Microscope source) {
-        super(source.getManufacturer(), source.getModel(), source.getYear());
+        super(source); // in the abstract superclass, we have a copy constructor, thus this
         setMagnification(source.magnification);
     }
+
     public int getMagnification() {
         return this.magnification;
     }
@@ -25,6 +26,11 @@ public class Microscope extends LabEquipment{
     @Override
     public String performMaintenance() {
         return "Microscope maintenance: Clean the lenses and check the light source.";
+    }
+
+    @Override
+    public LabEquipment clone() {
+        return new Microscope(this);
     }
 
     
