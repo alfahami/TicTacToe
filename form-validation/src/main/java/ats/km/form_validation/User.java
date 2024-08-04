@@ -2,11 +2,21 @@ package ats.km.form_validation;
 
 import java.util.Date;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 public class User {
+
+    @NotBlank(message = "First name cannot be blank") 
+    @Size(min = 2, message = "First name is too short")
     private String firstName;
+    @NotBlank(message = "First name cannot be blank") 
+    @Size(min = 2, message = "First name is too short")
     private String lastName;
     private String userName;
     private String email;
+    @Past
     private Date dateOfBirth;
 
 
