@@ -10,7 +10,7 @@ import jakarta.validation.Valid;
 
 @Controller
 public class FormValidationController {
-    
+
     @GetMapping("/")
     public String getForm(Model model) {
         model.addAttribute("user", new User());
@@ -24,8 +24,14 @@ public class FormValidationController {
 
     @PostMapping("/submitItem")
     public String handleSubmit(@Valid User user, BindingResult bindingResult) {
-        //System.out.println(user.getDateOfBirth().toString());
-        if(bindingResult.hasErrors()) return "sign-up";
+        if (bindingResult.hasErrors()) {
+            return "sign-up";
+        }
+        if (user.getFirstName().equalsIgnoreCase(user.getLastName())) {
+            bindingResult.rejectValue("lastName", "", "Please enter valid data");
+            return "sign-up";
+        }
+
         return "redirect:/result";
     }
 }
