@@ -2,6 +2,8 @@ package ats.km.form_validation;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -11,12 +13,13 @@ public class User {
     @NotBlank(message = "First name cannot be blank") 
     @Size(min = 2, message = "First name is too short")
     private String firstName;
-    @NotBlank(message = "First name cannot be blank") 
-    @Size(min = 2, message = "First name is too short")
+    @NotBlank(message = "Last name cannot be blank") 
+    @Size(min = 2, message = "Last name is too short")
     private String lastName;
     private String userName;
     private String email;
-    @Past
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Past(message = "Birth date must be in the past")
     private Date dateOfBirth;
 
 

@@ -24,6 +24,8 @@ public class FormValidationController {
 
     @PostMapping("/submitItem")
     public String handleSubmit(@Valid User user, BindingResult bindingResult) {
+        //System.out.println(user.getDateOfBirth().toString());
+        if(bindingResult.hasErrors()) return "sign-up";
         return "redirect:/result";
     }
 }
