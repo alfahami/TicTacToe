@@ -20,6 +20,7 @@ public class User {
     private String email;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Past(message = "Birth date must be in the past")
+    @Age(message = "Must at least be 18")
     private Date dateOfBirth;
 
 
