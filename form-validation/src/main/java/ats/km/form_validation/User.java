@@ -16,6 +16,7 @@ public class User {
     @NotBlank(message = "Last name cannot be blank") 
     @Size(min = 2, message = "Last name is too short")
     private String lastName;
+    @Username(message = "Cannot contain special characters or uppercase characters")
     private String userName;
     private String email;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -23,10 +24,8 @@ public class User {
     @Age(message = "Must at least be 18")
     private Date dateOfBirth;
 
-
     public User() {
     }
-
 
     public String getFirstName() {
         return this.firstName;
