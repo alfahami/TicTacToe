@@ -13,7 +13,7 @@ public class UsernameValidator implements ConstraintValidator<Username, String> 
         Pattern pattern = Pattern.compile("[^a-z0-9 ]");
         Matcher matcher = pattern.matcher(value);
         boolean badCharacters = matcher.find(); // false if characters are a-z or 0-9
-        return badCharacters;
+        return !badCharacters;
     }
 
 }
